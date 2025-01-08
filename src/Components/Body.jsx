@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { Outlet } from 'react-router-dom'
+import { Outlet} from 'react-router-dom'
 
 const Body = () => {
   return (
@@ -11,4 +11,4 @@ const Body = () => {
   )
 }
 
-export default Body
+export default Body;
