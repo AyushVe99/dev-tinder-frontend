@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './Components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Body from './Components/Body'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
-import { Provider, useSelector } from 'react-redux'
+import { Provider, useDispatch, useSelector } from 'react-redux'
 import appStore from './utils/appStore'
 import Feed from './Components/Feed'
+import { BASE_URL } from './utils/constants'
+import { addUser } from './utils/userSlice'
+import axios from 'axios'
 function App() {
   //const user = useSelector((store) => store?.user?.data);
 
@@ -21,6 +24,7 @@ function App() {
               <Route path='/' element={<Feed />} />
               <Route path='/login' element={<Login />} />
               <Route path='/profile' element={<Profile />} />
+              <Route path='/feed' element={<Feed/>} />
             </Route>
           </Routes>
         </BrowserRouter>

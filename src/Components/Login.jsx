@@ -51,7 +51,7 @@ const Login = () => {
             onChange={(e) => { setPassword(e.target.value) }} />
         </label>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+        <button type="button" className="btn btn-primary" onClick={userLogin}>Login</button>
         </div>
       </div>
     </div>
