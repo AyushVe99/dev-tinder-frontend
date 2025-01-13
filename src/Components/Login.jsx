@@ -10,14 +10,18 @@ const Login = () => {
   const dispatch=useDispatch();
   const navigate= useNavigate();
 
-  const userLogin = async () => {
+  const handleLogin = async () => {
     try {
       const res= await axios.post(BASE_URL+"/login", {
         email: email,
         password: password
       },{withCredentials:true})
-      dispatch(addUser(res?.data))
-      return navigate("/");
+      if(res.status==200)
+      {
+        dispatch(addUser(res?.data))
+        return navigate("/");
+      }
+      
       console.log(res?.data?.data)
     } catch (error) {
       console.log(error)
@@ -47,7 +51,7 @@ const Login = () => {
             onChange={(e) => { setPassword(e.target.value) }} />
         </label>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary" onClick={userLogin}>Login</button>
+          <button className="btn btn-primary" onClick={handleLogin}>Login</button>
         </div>
       </div>
     </div>
