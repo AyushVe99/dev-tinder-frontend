@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Default Theme */
+body.theme-default {
+    background-color: black;
+    color: white;
+  }
+  
+  /* Retro Theme */
+  body.theme-retro {
+    background-color: #ffecb3;
+    color: #4a4a4a;
+  }
+  
+  /* Cyberpunk Theme */
+  body.theme-cyberpunk {
+    background-color: #1c1c1c;
+    color: #00ff00;
+  }
+  
+  /* Valentine Theme */
+  body.theme-valentine {
+    background-color: #ff77a9;
+    color: #ffffff;
+  }
+  
+  /* Aqua Theme */
+  body.theme-aqua {
+    background-color: #126f6f;
+    color: #fffbfb;
+  }
+  

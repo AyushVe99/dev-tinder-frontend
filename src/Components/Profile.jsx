@@ -67,7 +67,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-between p-6">
+    <div className="flex flex-col md:flex-row gap-8 justify-around p-6">
       {isEditProfile && userData && (
         <div className="p-6 max-w-lg w-full bg-black rounded-lg shadow-md">
           <h2 className="text-2xl font-semibold mb-6 text-center">

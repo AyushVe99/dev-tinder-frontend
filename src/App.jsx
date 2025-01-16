@@ -10,6 +10,7 @@ import Feed from './Components/Feed'
 import { BASE_URL } from './utils/constants'
 import { addUser } from './utils/userSlice'
 import axios from 'axios'
+import ConnectionRequests from './Components/ConnectionRequests'
 function App() {
   //const user = useSelector((store) => store?.user?.data);
 
@@ -25,6 +26,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/feed' element={<Feed/>} />
+              <Route path='/connections' element={<ConnectionRequests/>} />
             </Route>
           </Routes>
         </BrowserRouter>

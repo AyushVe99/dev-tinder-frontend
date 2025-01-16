@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BASE_URL } from '../utils/constants';
 import { removeUser } from '../utils/userSlice';
 import { Link, useNavigate } from 'react-router-dom';
+import Theme from './Theme';
 
 const Navbar = () => {
     const user = useSelector((store) => store?.user?.data);
@@ -18,9 +19,10 @@ const Navbar = () => {
     }
     return (
         <>
-            <div className="navbar bg-base-200">
+            <div className="navbar bg-base-200 flex h-10">
                 <div className="flex-1">
                     <Link to='/' className="btn btn-ghost text-xl">DevTinder</Link>
+
                 </div>
                 {user && <div className="flex-none gap-2 mx-5">
                     <div>Welcome, {user?.fName}</div>
@@ -39,7 +41,7 @@ const Navbar = () => {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><a>Settings</a></li>
+                            <li><Link to='/connections'>Connection Requests</Link></li>
                             <li><a onClick={handleLogout}>Logout</a></li>
                         </ul>
                     </div>
@@ -57,7 +59,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 }
+                <Theme/>
             </div>
+            
         </>
     )
 }
