@@ -68,7 +68,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-10 justify-center items-center p-6 min-h-screen">
+    <div className="flex flex-col h-full md:flex-row gap-10 justify-center items-center p-6 min-h-screen">
       {isEditProfile && userData && (
         <div className="p-8 max-w-lg w-full bg-white rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
           <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">Edit Profile</h2>
