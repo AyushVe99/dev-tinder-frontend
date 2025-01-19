@@ -11,6 +11,7 @@ import { BASE_URL } from './utils/constants'
 import { addUser } from './utils/userSlice'
 import axios from 'axios'
 import ConnectionRequests from './Components/ConnectionRequests'
+import Connections from './Components/Connections'
 function App() {
   //const user = useSelector((store) => store?.user?.data);
 
@@ -26,7 +27,8 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/profile' element={<Profile />} />
               <Route path='/feed' element={<Feed/>} />
-              <Route path='/connections' element={<ConnectionRequests/>} />
+              <Route path='/connection-requests' element={<ConnectionRequests/>} />
+              <Route path='/connections' element={<Connections/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

@@ -8,7 +8,7 @@ import Cards from './Cards';
 const Profile = () => {
   const userData = useSelector((store) => store?.user?.data);
   const dispatch = useDispatch();
-  const[isEditProfile,setIsEditProfile]=useState(false)
+  const [isEditProfile, setIsEditProfile] = useState(false);
   const [user, setUser] = useState({
     fName: '',
     lName: '',
@@ -31,9 +31,10 @@ const Profile = () => {
     }
   }, [userData]);
 
-  const editProfile=(()=>{
+  const editProfile = () => {
     setIsEditProfile(true);
-})
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((prevUser) => ({
@@ -67,113 +68,104 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 justify-around p-6">
+    <div className="flex flex-col md:flex-row gap-10 justify-center items-center p-6 min-h-screen">
       {isEditProfile && userData && (
-        <div className="p-6 max-w-lg w-full bg-black rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold mb-6 text-center">
-          </h2>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">First Name</span>
-            </label>
-            <input
-              type="text"
-              name="fName"
-              placeholder="First Name"
-              className="input input-bordered w-full"
-              value={user.fName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">Last Name</span>
-            </label>
-            <input
-              type="text"
-              name="lName"
-              placeholder="Last Name"
-              className="input input-bordered w-full"
-              value={user.lName}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">Email</span>
-            </label>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email"
-              className="input input-bordered w-full"
-              value={user.email}
-              disabled
-            />
-          </div>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">Age</span>
-            </label>
-            <input
-              type="number"
-              name="age"
-              placeholder="Enter your age"
-              className="input input-bordered w-full"
-              value={user.age}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">Skills</span>
-            </label>
-            <input
-              type="text"
-              name="skills"
-              placeholder="Enter skills separated by commas"
-              className="input input-bordered w-full"
-              value={user.skills}
-              onChange={handleChange}
-            />
-          </div>
-          <div className="form-control mb-4">
-            <label className="label">
-              <span className="label-text font-medium">Gender</span>
-            </label>
-            <div className="flex gap-4 items-center">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="gender"
-                  value="male"
-                  className="radio radio-primary"
-                  checked={user.gender === 'male'}
-                  onChange={handleChange}
-                />
-                <span>Male</span>
-              </label>
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="gender"
-                  value="female"
-                  className="radio radio-primary"
-                  checked={user.gender === 'female'}
-                  onChange={handleChange}
-                />
-                <span>Female</span>
-              </label>
+        <div className="p-8 max-w-lg w-full bg-white rounded-xl shadow-lg border border-gray-200 transition-transform transform hover:scale-105">
+          <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">Edit Profile</h2>
+          <form className="space-y-6">
+            <div className="form-control">
+              <label className="label text-gray-700">First Name</label>
+              <input
+                type="text"
+                name="fName"
+                placeholder="First Name"
+                className="input input-bordered w-full"
+                value={user.fName}
+                onChange={handleChange}
+              />
             </div>
-          </div>
-          <div className="mt-6 text-center">
-            <button onClick={handleSave} className="btn btn-primary px-6 py-2">
-              Save
-            </button>
-          </div>
+            <div className="form-control">
+              <label className="label text-gray-700">Last Name</label>
+              <input
+                type="text"
+                name="lName"
+                placeholder="Last Name"
+                className="input input-bordered w-full"
+                value={user.lName}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label text-gray-700">Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                className="input input-bordered w-full bg-gray-100"
+                value={user.email}
+                disabled
+              />
+            </div>
+            <div className="form-control">
+              <label className="label text-gray-700">Age</label>
+              <input
+                type="number"
+                name="age"
+                placeholder="Enter your age"
+                className="input input-bordered w-full"
+                value={user.age}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label text-gray-700">Skills</label>
+              <input
+                type="text"
+                name="skills"
+                placeholder="Enter skills separated by commas"
+                className="input input-bordered w-full"
+                value={user.skills}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-control">
+              <label className="label text-gray-700">Gender</label>
+              <div className="flex gap-4">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    className="radio radio-primary"
+                    checked={user.gender === 'male'}
+                    onChange={handleChange}
+                  />
+                  Male
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    className="radio radio-primary"
+                    checked={user.gender === 'female'}
+                    onChange={handleChange}
+                  />
+                  Female
+                </label>
+              </div>
+            </div>
+            <div className="mt-6 text-center">
+              <button onClick={handleSave} className="btn btn-primary w-full">Save Changes</button>
+            </div>
+          </form>
         </div>
       )}
-      {userData && <Cards User={userData} isEditProfile={editProfile} />}
+      {userData && !isEditProfile && (
+        <div className="max-w-md w-full p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+          <Cards User={userData} isEditProfile={editProfile} />
+        </div>
+      )}
     </div>
   );
 };
